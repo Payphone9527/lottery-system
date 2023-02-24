@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card m-5">
+    <div class="card-header">
+      <h3>項目列表</h3>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"
+          *ngFor="let item of items; let i = index">{{ item }}
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button (click)="deleteItem(i)" class="btn btn-danger">刪除</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <form class="input-group">
+        <label class="input-group-text" for="newItem">新增項目</label>
+        <input class="form-control" type="text" id="newItem" name="newItem" [(ngModel)]="newItemText">
+        <button type="button" (click)="addItem()" class="btn btn-primary">新增</button>
+      </form>
+    </div>
+  </div>
+  <div class="m-5">
+    <button class="btn btn-info" type="button" (click)="lottery()">抽獎</button>
+    <p *ngIf="result"> 抽獎結果：{{ result }}</p>
+  </div>
+</div>
